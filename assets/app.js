@@ -6,20 +6,27 @@ $('.name-field').keydown(function (){
     return /[a-z]/i.test(event.key)
 })
 
+$(document).ready(function() {
+    $('#form_panel_role').trigger('change');
+});
+
 $('#form_panel_role').change(function(e){
     if(e.target.value == 'Company'){
         $('#form_panel_pesel').parent().css('display', 'none');
+        $('#form_panel_pesel').attr('required', false)
+        $('#form_panel_pesel').val('')
         $('#form_panel_nip').parent().css('display', 'block');
         $('#form_panel_nip').attr('required', true)
     }else{
         $('#form_panel_pesel').parent().css('display', 'block');
-        $('#form_panel_nip').parent().css('display', 'none');
         $('#form_panel_pesel').attr('required', true)
-
+        $('#form_panel_nip').parent().css('display', 'none');
+        $('#form_panel_nip').attr('required', false)
+        $('#form_panel_nip').val('')
     }
 })
 
-$('#form_panel_save').click(function(){
+$('form').on("submit",function(){
     if(!(/(^\d{2}-\d{3}$)/.test($('#form_panel_zipCode').val()))){
         $('#form_panel_zipCode').attr('class', 'border-field')
         return false;

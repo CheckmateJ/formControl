@@ -36,7 +36,7 @@ class FormPanel
     #[ORM\Column( type: Types::BIGINT)]
     private ?string $phoneNumber = null;
 
-    #[ORM\Column(length: 255,  unique: true)]
+    #[ORM\Column(length: 255)]
     private ?string $email = null;
 
     #[ORM\Column(length: 400)]

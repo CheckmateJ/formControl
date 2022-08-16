@@ -23,7 +23,7 @@
                             <label>Correspondence address the same as above </label>
                         </div>
                     {% endif %}
-                    <div class="col-md-6 form-group mb-3 {% if field.vars.name == 'name' or field.vars.name == 'surname' %} name-field {% endif %} {% if field.vars.name == 'nip' %} nip-hide {% endif %}">
+                    <div class="col-md-6 form-group mb-3 {% if field.vars.name == 'name' or field.vars.name == 'surname' %} name-field {% endif %} ">
                         {{ form_label(field) }}
                         {{ form_widget(field) }}
                     </div>
