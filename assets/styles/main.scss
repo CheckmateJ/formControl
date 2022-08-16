@@ -1,0 +1,48 @@
+@media screen and (min-width: 1200px) {
+    .container{
+      max-width: 1140px;
+    }
+}
+
+.contact-wrap{
+  box-shadow: 0 0 20px 0 rgb(0 0 0 / 5%);
+  border: 1px solid #efefef;
+  border-radius: 10px;
+  padding: 25px;
+}
+
+.form-control{
+  border:none;
+  border-bottom: 1px solid #efefef;
+
+  &:focus{
+    outline: none;
+    -webkit-box-shadow: none;
+    /* box-shadow: none; */
+    border-color: #000;
+    border-radius: unset;
+  }
+}
+
+.form-label{
+  color: #999999;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.nip-hide{
+  display: none;
+}
+
+.border-field{
+  border: solid 3px red;
+}
+
+.unbordered-field{
+  border: none;
+  border-bottom: 1px solid #efefef;
+}

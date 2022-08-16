@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Form panel{% endblock %}
+
+{% block body %}
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success text-center">
+            {{ message }}
+        </div>
+    {% endfor %}
+    {{ form_start(form) }}
+    <div class="container mt-xl-5 mb-xl-5">
+        <div class="row align-items-stretch no-gutters contact-wrap">
+            <div class="d-flex">
+                <h3 class="mb-2">Contact us</h3><i class="fa-solid fa-address-card fa-2xl align-self-center ms-3"></i>
+            </div>
+            <div class="row">
+                {% for field in form %}
+                    {% if field.vars.name ==  'correspondenceAddress' %}
+                    <div>
+                        <div class="col-md-6 form-group mb-3">
+                            <input type="checkbox" name="correspondence_address" id="check_correspondence_address">
+                            <label>Correspondence address the same as above </label>
+                        </div>
+                    {% endif %}
+                    <div class="col-md-6 form-group mb-3 {% if field.vars.name == 'name' or field.vars.name == 'surname' %} name-field {% endif %} {% if field.vars.name == 'nip' %} nip-hide {% endif %}">
+                        {{ form_label(field) }}
+                        {{ form_widget(field) }}
+                    </div>
+                    {% if field.vars.name ==  'correspondenceAddress' %}
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            {{ form_rest(form) }}
+        </div>
+    </div>
+    {{ form_end(form) }}
+{% endblock %}
