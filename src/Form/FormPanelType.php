@@ -21,7 +21,7 @@ class FormPanelType extends AbstractType
             ->add('name')
             ->add('surname')
             ->add('role', ChoiceType::class, [
-                'choices' => array_combine(FormPanel::type, FormPanel::type)
+                'choices' => array_combine(FormPanel::TYPE, FormPanel::TYPE)
             ])
             ->add('nip')
             ->add('pesel')
@@ -34,15 +34,16 @@ class FormPanelType extends AbstractType
             ->add('correspondenceLocalNumber')
             ->add('correspondenceZipCode')
             ->add('contactHours', ChoiceType::class, [
-                'choices' => array_combine(FormPanel::contactHours, FormPanel::contactHours)
+                'choices' => array_combine(FormPanel::CONTACT_HOURS, FormPanel::CONTACT_HOURS)
             ])
             ->add('topic', ChoiceType::class, [
-                'choices' => array_combine(FormPanel::topic, FormPanel::topic)
+                'choices' => array_combine(FormPanel::TOPIC, FormPanel::TOPIC)
             ])
             ->add('pdfFileName', FileType::class, [
                 'label' => 'PDF file',
                 'mapped' => false,
                 'required' => false,
+                'error_bubbling' => true,
                 'constraints' => [
                     new File([
                         'maxSize' => '1024k',

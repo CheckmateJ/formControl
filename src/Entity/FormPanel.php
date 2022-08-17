@@ -9,9 +9,9 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: FormPanelRepository::class)]
 class FormPanel
 {
-    const type = ['Private person', 'Company'];
-    const contactHours = ['8.00 - 12.00', '12.00 - 16.00'];
-    const topic = ['Cooperation', 'Problem with product', 'Contact with accountant'];
+    const TYPE = ['Private person', 'Company'];
+    const CONTACT_HOURS = ['8.00 - 12.00', '12.00 - 16.00'];
+    const TOPIC = ['Cooperation', 'Problem with product', 'Contact with accountant'];
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -27,13 +27,13 @@ class FormPanel
     #[ORM\Column(length: 255)]
     private ?string $role = null;
 
-    #[ORM\Column(type: Types::BIGINT, nullable: true)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $nip = null;
 
-    #[ORM\Column(type: Types::BIGINT, nullable: true)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $pesel = null;
 
-    #[ORM\Column( type: Types::BIGINT)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $phoneNumber = null;
 
     #[ORM\Column(length: 255)]
