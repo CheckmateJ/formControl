@@ -1,5 +1,5 @@
 import * as bootstrap from 'bootstrap';
-
+import './fontawesome/fontawesome'
 $('.name-field').on('keydown', function (){
     return /[a-z]/i.test(event.key)
 })
